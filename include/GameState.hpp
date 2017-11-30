@@ -10,7 +10,7 @@ class GameState
 public:
     GameState() {};
 
-    virtual void update(Game &game) = 0;
+    virtual void update(Game &game, float frametime) = 0;
     virtual void processEvents(Game &game) = 0;
     virtual void render(sf::RenderWindow &window) = 0;
 };

@@ -7,6 +7,7 @@
 #include <sstream>
 #include <iostream>
 
+#include "Constants.hpp"
 #include "GameState.hpp"
 
 class GameState;
@@ -22,7 +23,7 @@ public:
         MAINMENU, PLAYSTATE, ENDSTATE
     };
 
-    Game(int width, int height, std::string title);
+    Game(std::string title);
     ~Game();
 
     void run();
@@ -33,7 +34,7 @@ public:
     sf::Event event;
 
 private:
-    void update();
+    void update(float frametime);
     void processEvents();
     void render();
 

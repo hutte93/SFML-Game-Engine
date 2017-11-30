@@ -8,7 +8,7 @@ class Gui
 public:
     virtual bool onHover(Game& game) = 0;
     virtual bool onClick(Game& game) = 0;
-    virtual void Render(sf::RenderWindow& window) = 0;
+    virtual void render(sf::RenderWindow& window) = 0;
 
 protected:
     bool m_bHover;

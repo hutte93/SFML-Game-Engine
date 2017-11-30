@@ -34,21 +34,40 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Assets.hpp" />
 		<Unit filename="include/Button.hpp" />
+		<Unit filename="include/Camera.hpp" />
+		<Unit filename="include/Constants.hpp" />
+		<Unit filename="include/Direction.hpp" />
 		<Unit filename="include/EndState.hpp" />
+		<Unit filename="include/FontInfo.hpp" />
 		<Unit filename="include/Game.hpp" />
 		<Unit filename="include/GameState.hpp" />
 		<Unit filename="include/Gui.hpp" />
+		<Unit filename="include/ICollideable.hpp" />
+		<Unit filename="include/IObject.hpp" />
+		<Unit filename="include/IRenderable.hpp" />
 		<Unit filename="include/MainMenu.hpp" />
 		<Unit filename="include/PlayState.hpp" />
-		<Unit filename="include/Resources.hpp" />
+		<Unit filename="include/Player.hpp" />
+		<Unit filename="include/SpriteInfo.hpp" />
+		<Unit filename="include/SpriteObject.hpp" />
+		<Unit filename="include/World.hpp" />
+		<Unit filename="include/WorldManager.hpp" />
+		<Unit filename="include/WorldObject.hpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Assets.cpp" />
 		<Unit filename="src/Button.cpp" />
+		<Unit filename="src/Camera.cpp" />
 		<Unit filename="src/EndState.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/MainMenu.cpp" />
 		<Unit filename="src/PlayState.cpp" />
-		<Unit filename="src/Resources.cpp" />
+		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/SpriteObject.cpp" />
+		<Unit filename="src/World.cpp" />
+		<Unit filename="src/WorldManager.cpp" />
+		<Unit filename="src/WorldObject.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

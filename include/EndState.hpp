@@ -10,7 +10,7 @@ class EndState : public GameState
 public:
     EndState();
 
-    void update(Game &game) override;
+    void update(Game &game, float frametime) override;
     void processEvents(Game &game) override;
     void render(sf::RenderWindow &window) override;
 

@@ -5,7 +5,7 @@ EndState::EndState()
     loadAssets();
 }
 
-void EndState::update(Game &game)
+void EndState::update(Game &game, float frametime)
 {
 
 }

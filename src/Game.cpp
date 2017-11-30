@@ -3,17 +3,20 @@
 #include "PlayState.hpp"
 #include "EndState.hpp"
 
-Game::Game(int width, int height, std::string title)
-    : window(sf::VideoMode(width, height), title, sf::Style::Close)
+Game::Game(std::string title)
+    : window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), title, sf::Style::Close)
 {
-    window.setFramerateLimit(120);
+    window.setFramerateLimit(FPS);
     window.setVerticalSyncEnabled(true);
-    changeState(Game::gameState::MAINMENU);
 
     pClock = new sf::Clock;
     pClock->restart();
 
     mTitle = title;
+
+    Assets::loadAssets();
+
+    changeState(Game::gameState::MAINMENU);
 }
 
 Game::~Game()
@@ -28,7 +31,7 @@ void Game::run()
     {
         calcFrametime();
 
-        update();
+        update(mFrametime);
         processEvents();
         render();
     }
@@ -40,21 +43,24 @@ void Game::changeState(gameState newState)
     {
         case gameState::MAINMENU:
             mCurrentState = std::move(std::unique_ptr<MainMenu>(new MainMenu));
+            std::cout << "MainMenu" << std::endl;
             break;
         case gameState::PLAYSTATE:
             mCurrentState = std::move(std::unique_ptr<PlayState>(new PlayState));
+            std::cout << "Start of Game" << std::endl;
             break;
         case gameState::ENDSTATE:
             mCurrentState = std::move(std::unique_ptr<EndState>(new EndState));
+            std::cout << "End of Game" << std::endl;
             break;
         default:
             throw std::runtime_error("Unable to change gamestate!");
     }
 }
 
-void Game::update()
+void Game::update(float deltatime)
 {
-    mCurrentState->update(*this);
+    mCurrentState->update(*this, deltatime);
 }
 
 void Game::processEvents()
@@ -82,13 +88,16 @@ void Game::render()
 void Game::calcFrametime()
 {
     mFrametime = pClock->getElapsedTime().asSeconds();
-    mFPS = 1.f / mFrametime;
 
-    std::stringstream ss;
-    ss << mFPS;
-    std::string title = mTitle + " @ " + ss.str() + " FPS";
+    #ifdef DEBUG
+        mFPS = 1.f / mFrametime;
 
-    window.setTitle(title);
+        std::stringstream ss;
+        ss << mFPS;
+        std::string title = mTitle + " @ " + ss.str() + " FPS";
+
+        window.setTitle(title);
+    #endif // DEBUG
 
     pClock->restart();
 }

@@ -14,14 +14,14 @@ public:
 
     bool onHover(Game& game) override;
     bool onClick(Game& game) override;
-    void Render(sf::RenderWindow& window) override;
 
+    void render(sf::RenderWindow& window) override;
     void loadTexture();
     void setColor(sf::Color color);
 
 private:
     sf::Sprite mButtonSprite;
-    sf::Text mButtonText;
+    sf::Text   mButtonText;
 };
 
 #endif // BUTTON_HPP_INCLUDED

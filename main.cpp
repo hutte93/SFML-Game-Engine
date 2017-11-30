@@ -2,7 +2,7 @@
 
 int main()
 {
-    Game game(960, 540, "SFML Game Engine");
+    Game game("SFML Game Engine");
     game.run();
 
     return 0;

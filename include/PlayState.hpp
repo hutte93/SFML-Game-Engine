@@ -10,12 +10,15 @@ class PlayState : public GameState
 public:
     PlayState();
 
-    void update(Game &game) override;
+    void update(Game &game, float frametime) override;
     void processEvents(Game &game) override;
     void render(sf::RenderWindow &window) override;
 
 private:
     void loadAssets();
+
+private:
+    sf::Sprite mBackground;
 };
 
 #endif // PLAYSTATE_HPP_INCLUDED
