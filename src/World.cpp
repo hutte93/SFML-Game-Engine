@@ -8,14 +8,14 @@
 
 World::World(std::string path)
 {
-    mPlayer = std::make_shared<Player>(Assets::sprites["mario"], sf::Vector2f());
+    mPlayer = std::make_shared<Player>(Assets::sprites["bluepeewee"], sf::Vector2f());
     mCollideables.push_back(mPlayer);
 
-    mGravity = sf::Vector2f(0.f, 15.f);
+    mGravity = sf::Vector2f(0.f, 10.f);
     mSpawnPoint = sf::Vector2f(0.f,  0.f);
     mBoundaries = sf::FloatRect(0.f,  0.f, 800.f, 600.f); // left, top, width, height
 
-    mBackground = sf::Sprite(Assets::sprites["background"].mTexture);
+    mBackground = sf::Sprite(Assets::sprites["GameBackground"].mTexture);
 
     loadWorld(path);
 }
@@ -85,6 +85,11 @@ void World::update(float frametime)
     mCamera.follow(sf::Vector2f(mPlayer->getRenderPosition().x, SCREEN_HEIGHT/2.f));
 }
 
+void World::handle(sf::Event& event)
+{
+    mPlayer->handle(event);
+}
+
 void World::render(sf::RenderTarget& target, float alpha)
 {
     target.setView(target.getDefaultView());
@@ -113,11 +118,6 @@ void World::render(sf::RenderTarget& target, float alpha)
             obj->render(target, alpha);
         }
     }
-}
-
-void World::handle(sf::Event& event)
-{
-    //mPlayer->handle(event);
 }
 
 void World::loadWorld(std::string path)

@@ -15,8 +15,8 @@ public:
     bool onContactBegin(std::weak_ptr<ICollideable> object, bool fromLeft, bool fromTop);
 
     void update(float frametime);
-    void render(sf::RenderTarget &target, float alpha);
     void handle(sf::Event &event);
+    void render(sf::RenderTarget &target, float alpha);
 
     void respawn(sf::Vector2f pos);
 

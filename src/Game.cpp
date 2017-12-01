@@ -43,15 +43,12 @@ void Game::changeState(gameState newState)
     {
         case gameState::MAINMENU:
             mCurrentState = std::move(std::unique_ptr<MainMenu>(new MainMenu));
-            std::cout << "MainMenu" << std::endl;
             break;
         case gameState::PLAYSTATE:
             mCurrentState = std::move(std::unique_ptr<PlayState>(new PlayState));
-            std::cout << "Start of Game" << std::endl;
             break;
         case gameState::ENDSTATE:
             mCurrentState = std::move(std::unique_ptr<EndState>(new EndState));
-            std::cout << "End of Game" << std::endl;
             break;
         default:
             throw std::runtime_error("Unable to change gamestate!");
@@ -71,16 +68,16 @@ void Game::processEvents()
         {
             window.close();
         }
-    }
 
-    mCurrentState->processEvents(*this);
+        mCurrentState->processEvents(*this);
+    }
 }
 
 void Game::render()
 {
     window.clear(sf::Color(120, 120, 120));
 
-    mCurrentState->render(window);
+    mCurrentState->render(*this, mFrametime);
 
     window.display();
 }

@@ -1,7 +1,8 @@
 #include "Player.hpp"
 #include "Direction.hpp"
+#include <iostream>
 
-Player::Player(SpriteInfo &info, sf::Vector2f pos) :
+Player::Player(SpriteInfo& info, sf::Vector2f pos) :
     SpriteObject(info, pos),
     ICollideable(info.mHitBox, info.mFrameDim, pos)
 {
@@ -23,69 +24,61 @@ void Player::update(float frametime)
     mOldPhysicsPosition = mPhysicsPosition;
     mPhysicsPosition += mVelocity;
 
-    /// animations
-    if (false == mGrounded)
+    // animations
+    if (!mGrounded) // above ground
     {
-        if (Direction::LEFT == mDirection)
-            //setFrameLoop(33, 33);
-            setFrameLoop(7, 7);
-        else if (Direction::STILL_LEFT == mDirection)
-            //setFrameLoop(35, 35);
-            setFrameLoop(7, 7);
+        if (mDirection == Direction::LEFT)
+            setFrameLoop(33, 33);
+        else if (mDirection == Direction::STILL_LEFT)
+            setFrameLoop(35, 35);
 
-        else if (Direction::RIGHT == mDirection)
-            //setFrameLoop(30, 30);
-            setFrameLoop(7, 7);
-        else if (Direction::STILL_RIGHT == mDirection)
-            //setFrameLoop(32, 32);
-            setFrameLoop(7, 7);
+        else if (mDirection == Direction::RIGHT)
+            setFrameLoop(30, 30);
+        else if (mDirection == Direction::STILL_RIGHT)
+            setFrameLoop(32, 32);
     }
-    else if (true == mGrounded)
+    else if (mGrounded) // walking on ground
     {
-        if (Direction::LEFT == mDirection)
-            //setFrameLoop(12, 17);
-            setFrameLoop(0, 1);
-        else if (Direction::STILL_LEFT == mDirection)
-            //setFrameLoop(0, 5);
-            setFrameLoop(0, 0);
+        if (mDirection == Direction::LEFT)
+            setFrameLoop(12, 17);
+        else if (mDirection == Direction::STILL_LEFT)
+            setFrameLoop(0, 5);
 
-        else if (Direction::RIGHT == mDirection)
-            //setFrameLoop(18, 23);
-            setFrameLoop(0, 1);
-        else if (Direction::STILL_RIGHT == mDirection)
-            //setFrameLoop(6, 11);
-            setFrameLoop(0, 0);
+        else if (mDirection == Direction::RIGHT)
+            setFrameLoop(18, 23);
+        else if (mDirection == Direction::STILL_RIGHT)
+            setFrameLoop(6, 11);
     }
 }
 
-void Player::handle(sf::Event &event)
+void Player::handle(sf::Event& event)
 {
-    if (sf::Event::KeyPressed == event.type)
+    if (event.type == sf::Event::KeyPressed)
     {
-        if (sf::Keyboard::Space == event.key.code && mGrounded)
+        if (event.key.code == sf::Keyboard::Space && mGrounded)
         {
             mVelocity.y = -mJumpSpeed;
             mGrounded = false;
         }
-        if (sf::Keyboard::A == event.key.code)
+        if (event.key.code == sf::Keyboard::A)
         {
             mVelocity.x = -mRunSpeed;
             mDirection = Direction::LEFT;
         }
-        else if (sf::Keyboard::D == event.key.code)
+        else if (event.key.code == sf::Keyboard::D)
         {
             mVelocity.x = mRunSpeed;
             mDirection = Direction::RIGHT;
         }
     }
-    else if (sf::Event::KeyReleased == event.type)
+    else if (event.type == sf::Event::KeyReleased)
     {
-        if (sf::Keyboard::A == event.key.code)
+        if (event.key.code == sf::Keyboard::A)
         {
             mVelocity.x = 0.f;
             mDirection = Direction::STILL_LEFT;
         }
-        else if (sf::Keyboard::D == event.key.code)
+        else if (event.key.code == sf::Keyboard::D)
         {
             mVelocity.x = 0.f;
             mDirection = Direction::STILL_RIGHT;
@@ -93,7 +86,7 @@ void Player::handle(sf::Event &event)
     }
 }
 
-void Player::render(sf::RenderTarget &target, float alpha)
+void Player::render(sf::RenderTarget& target, float alpha)
 {
     SpriteObject::render(target, alpha);
 
@@ -111,10 +104,8 @@ void Player::respawn(sf::Vector2f pos)
 
 bool Player::onContactBegin(std::weak_ptr<ICollideable> object, bool fromLeft, bool fromTop)
 {
-    if (true == object.lock()->isStatic())
-    {
+    if (object.lock()->isStatic())
         mGrounded = true;
-    }
 
     return true;
 }

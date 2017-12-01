@@ -12,7 +12,7 @@ public:
 
     virtual void update(Game &game, float frametime) = 0;
     virtual void processEvents(Game &game) = 0;
-    virtual void render(sf::RenderWindow &window) = 0;
+    virtual void render(Game &game, float frametime) = 0;
 };
 
 #endif // GAMESTATE_HPP_INCLUDED

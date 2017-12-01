@@ -16,7 +16,7 @@ public:
 
     void update(Game &game, float frametime) override;
     void processEvents(Game &game) override;
-    void render(sf::RenderWindow &window) override;
+    void render(Game &game, float frametime) override;
 
 private:
     void loadAssets();

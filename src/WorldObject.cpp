@@ -24,5 +24,5 @@ void WorldObject::render(sf::RenderTarget& target, float alpha)
 {
     SpriteObject::render(target, alpha);
 
-    mRenderPosition = mPhysicsPosition*alpha + mOldPhysicsPosition*(1.f - alpha);
+    mRenderPosition = mPhysicsPosition;/**alpha + mOldPhysicsPosition*(1.f - alpha);*/
 }

@@ -39,8 +39,6 @@ protected:
     int mFrameDir;
     float mFrameDelay;
     bool mLoopAnim;
-
-private:
 };
 
 #endif // SPRITEOBJECT_HPP

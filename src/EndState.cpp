@@ -2,6 +2,10 @@
 
 EndState::EndState()
 {
+    #ifdef DEBUG
+        std::cout << "--> EndState" << std::endl;
+    #endif // DEBUG
+
     loadAssets();
 }
 
@@ -15,7 +19,7 @@ void EndState::processEvents(Game &game)
 
 }
 
-void EndState::render(sf::RenderWindow &window)
+void EndState::render(Game &game, float frametime)
 {
 
 }

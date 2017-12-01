@@ -2,7 +2,15 @@
 
 MainMenu::MainMenu()
 {
+    #ifdef DEBUG
+        std::cout << "--> MainMenuState" << std::endl;
+    #endif // DEBUG
+
     loadAssets();
+
+    mStartButton->setColor(sf::Color::Green);
+    mHelpButton->setColor(sf::Color::Yellow);
+    mExitButton->setColor(sf::Color::Red);
 }
 
 void MainMenu::update(Game &game, float frametime)
@@ -28,17 +36,17 @@ void MainMenu::processEvents(Game &game)
     }
 }
 
-void MainMenu::render(sf::RenderWindow &window)
+void MainMenu::render(Game &game, float frametime)
 {
-    window.draw(mBackground);
-    mStartButton->render(window);
-    mHelpButton->render(window);
-    mExitButton->render(window);
+    game.window.draw(mBackground);
+    mStartButton->render(game.window);
+    mHelpButton->render(game.window);
+    mExitButton->render(game.window);
 }
 
 void MainMenu::loadAssets()
 {
-    mBackground = sf::Sprite(Assets::sprites["background"].mTexture);
+    mBackground = sf::Sprite(Assets::sprites["MenuBackground"].mTexture);
 
     mStartButton = std::make_shared<Button> (sf::Vector2f(SCREEN_WIDTH / 2 - Assets::sprites["MenuButton"].mTexture.getSize().x / 2, 150.f), "Start");
     mHelpButton  = std::make_shared<Button> (sf::Vector2f(SCREEN_WIDTH / 2 - Assets::sprites["MenuButton"].mTexture.getSize().x / 2, 250.f), "Help");

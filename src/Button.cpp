@@ -20,7 +20,7 @@ Button::Button(sf::Vector2f position, std::string text)
 
     mButtonSprite.setTextureRect(sf::IntRect(0,0,Assets::sprites["MenuButton"].mTexture.getSize().x,Assets::sprites["MenuButton"].mTexture.getSize().y / 2));
 
-    mButtonText.setFillColor(sf::Color::Black);
+    mButtonText.setFillColor(sf::Color::White);
     mButtonText.setCharacterSize(30);
 }
 
