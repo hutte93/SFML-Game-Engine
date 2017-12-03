@@ -1,4 +1,4 @@
-spawnpoint: 100 450
+spawnpoint: 100 250
 
 renderonly: cloud -64 64 parallax
 renderonly: cloud 320 10 parallax
@@ -6,17 +6,20 @@ renderonly: cloud 128 128 parallax
 renderonly: cloud 512 96 parallax
 renderonly: cloud 700 32 parallax
 
-platform: tilegrassblock 0 507
-platform: grassblock 100 507
-platform: tilegrassblock 64 507
-platform: grassblock 300 507
-platform: grassblock 531 507
-platform: bridge 385 471
-platform: tilegrassblock 595 507
-platform: tilegrassblock 659 507
-platform: tilegrassblock 723 507
-platform: tilegrassblock 787 507
-platform: tilegrassblock 841 507
-platform: tilegrassblock 904 507
-platform: bridge 990 471
-platform: tilegrassblock 1136 507
+platform: grass_left 100 476
+platform: dirt_left 100 508
+platform: grass_mid 132 476
+platform: dirt_mid 132 508
+platform: grass_mid 164 476
+platform: dirt_mid 164 508
+platform: grass_mid 196 476
+platform: dirt_mid 196 508
+platform: grass_mid 228 476
+platform: dirt_mid 228 508
+platform: grass_mid 260 476
+platform: dirt_mid 260 508
+platform: grass_right 292 476
+platform: grass_down_right 292 508
+platform: grass_mid 324 508
+platform: grass_mid 324 508
+

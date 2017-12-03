@@ -50,6 +50,7 @@
 		<Unit filename="include/MainMenu.hpp" />
 		<Unit filename="include/PlayState.hpp" />
 		<Unit filename="include/Player.hpp" />
+		<Unit filename="include/SoundInfo.hpp" />
 		<Unit filename="include/SpriteInfo.hpp" />
 		<Unit filename="include/SpriteObject.hpp" />
 		<Unit filename="include/World.hpp" />

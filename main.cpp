@@ -2,7 +2,7 @@
 
 int main()
 {
-    Game game("SFML Game Engine");
+    Game game("Super Mario World");
     game.run();
 
     return 0;
