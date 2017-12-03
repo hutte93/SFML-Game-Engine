@@ -20,6 +20,8 @@ public:
     void render(sf::RenderTarget& target, float alpha);
     void handle(sf::Event& event);
 
+    void resetView(sf::RenderTarget &target);
+
 private:
     bool checkCollision(std::weak_ptr<ICollideable> a, std::weak_ptr<ICollideable> b);
     void resolveCollision(std::weak_ptr<ICollideable> a, std::weak_ptr<ICollideable> b);
@@ -36,6 +38,8 @@ private:
     std::vector<std::shared_ptr<ICollideable>> mCollideables;
 
     sf::Sprite mBackground;
+
+    sf::Sound mSoundPlayerDead;
 
     Camera mCamera;
 };

@@ -12,11 +12,11 @@ public:
     ~Camera();
 
     void follow(sf::Vector2f center);
-    void setCenter(sf::Vector2f center){mCenter=center;mView.setCenter(mCenter);}
-    void zoom(float factor){mView.zoom(factor);}
+    void setCenter(sf::Vector2f center) { mCenter = center; mView.setCenter(mCenter); }
+    void zoom(float factor) { mView.zoom(factor); }
 
-    sf::Vector2f getCenter(){return mCenter;}
-    sf::View& getView(){return mView;}
+    sf::Vector2f getCenter() { return mCenter; }
+    sf::View& getView() { return mView; }
 
 private:
     sf::Vector2f mOldCenter; // to keep track of change

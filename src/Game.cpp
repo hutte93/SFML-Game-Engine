@@ -16,6 +16,8 @@ Game::Game(std::string title)
 
     Assets::loadAssets();
 
+    mSoundMenu.setBuffer(Assets::sounds["menu"].mSoundBuffer);
+
     changeState(Game::gameState::MAINMENU);
 }
 
@@ -43,9 +45,11 @@ void Game::changeState(gameState newState)
     {
         case gameState::MAINMENU:
             mCurrentState = std::move(std::unique_ptr<MainMenu>(new MainMenu));
+            mSoundMenu.play();
             break;
         case gameState::PLAYSTATE:
             mCurrentState = std::move(std::unique_ptr<PlayState>(new PlayState));
+            mSoundMenu.stop();
             break;
         case gameState::ENDSTATE:
             mCurrentState = std::move(std::unique_ptr<EndState>(new EndState));
@@ -66,6 +70,7 @@ void Game::processEvents()
     {
         if (sf::Event::Closed == event.type)
         {
+            mSoundMenu.stop();
             window.close();
         }
 

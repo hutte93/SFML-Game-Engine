@@ -8,14 +8,15 @@
 
 World::World(std::string path)
 {
-    mPlayer = std::make_shared<Player>(Assets::sprites["bluepeewee"], sf::Vector2f());
+    mPlayer = std::make_shared<Player>(Assets::sprites["mario"], sf::Vector2f());
     mCollideables.push_back(mPlayer);
 
     mGravity = sf::Vector2f(0.f, 10.f);
     mSpawnPoint = sf::Vector2f(0.f,  0.f);
-    mBoundaries = sf::FloatRect(0.f,  0.f, 800.f, 600.f); // left, top, width, height
+    mBoundaries = sf::FloatRect(0.f,  0.f, SCREEN_WIDTH, SCREEN_HEIGHT); // left, top, width, height
 
-    mBackground = sf::Sprite(Assets::sprites["GameBackground"].mTexture);
+    mBackground.setTexture(Assets::sprites["GameBackground"].mTexture);
+    mSoundPlayerDead.setBuffer(Assets::sounds["dead"].mSoundBuffer);
 
     loadWorld(path);
 }
@@ -33,6 +34,7 @@ void World::update(float frametime)
     mPlayer->update(frametime);
     if (!mPlayer->isAlive())
     {
+        mSoundPlayerDead.play();
         mPlayer->respawn(mSpawnPoint);
         mCollideables.push_back(mPlayer);
     }
@@ -326,4 +328,9 @@ void World::removeDeadObjects(std::vector<T>& v)
             it++;
         }
     }
+}
+
+void World::resetView(sf::RenderTarget &target)
+{
+    target.setView(target.getDefaultView());
 }

@@ -54,3 +54,8 @@ void WorldManager::loadWorldFileNames()
 
     file.close();
 }
+
+void WorldManager::resetView(sf::RenderTarget &target)
+{
+    mWorlds[mCurrentWorld].resetView(target);
+}

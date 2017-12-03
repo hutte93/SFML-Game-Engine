@@ -3,7 +3,7 @@
 
 #include <SFML/System/Time.hpp>
 
-#define DEBUG
+//#define DEBUG
 
 const float SCREEN_WIDTH = 960;
 const float SCREEN_HEIGHT = 540;

@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <memory>
 #include <string>
 #include <sstream>
@@ -47,6 +48,8 @@ private:
     std::string mTitle;
 
     std::unique_ptr<GameState> mCurrentState;
+
+    sf::Sound mSoundMenu;
 };
 
 #endif // GAME_H

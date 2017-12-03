@@ -1,32 +1,36 @@
 #include "Button.hpp"
 #include "Assets.hpp"
 
-Button::Button(sf::Vector2f position, std::string text)
+Button::Button(sf::Vector2f position, std::string buttonStyle, std::string text)
 {
     m_bHover = false;
     m_bClick = false;
 
-    loadTexture();
+    mButtonStyle = buttonStyle;
+
+    loadAssets();
 
     mButtonSprite.setPosition(position);
+
     mButtonText.setString(text);
+    mButtonText.setFillColor(sf::Color::Black);
+    mButtonText.setCharacterSize(30);
 
     sf::FloatRect textRect = mButtonText.getLocalBounds();
     mButtonText.setOrigin(textRect.left + textRect.width / 2.f,
         textRect.top + textRect.height / 2.f);
-    mButtonText.setPosition(Assets::sprites["MenuButton"].mTexture.getSize().x / 2.f + mButtonSprite.getPosition().x,
-        Assets::sprites["MenuButton"].mTexture.getSize().y / 4.f + mButtonSprite.getPosition().y
-    );
 
-    mButtonSprite.setTextureRect(sf::IntRect(0,0,Assets::sprites["MenuButton"].mTexture.getSize().x,Assets::sprites["MenuButton"].mTexture.getSize().y / 2));
+    mButtonText.setPosition(Assets::sprites[mButtonStyle].mTexture.getSize().x / 2.f + mButtonSprite.getPosition().x,
+                            Assets::sprites[mButtonStyle].mTexture.getSize().y / 4.f + mButtonSprite.getPosition().y);
 
-    mButtonText.setFillColor(sf::Color::White);
-    mButtonText.setCharacterSize(30);
+    mButtonSprite.setTextureRect(sf::IntRect(0,0,Assets::sprites[mButtonStyle].mTexture.getSize().x,Assets::sprites[mButtonStyle].mTexture.getSize().y / 2));
+
+    mSoundHovered.setVolume(20.f);
+    mSoundClicked.setVolume(100.f);
 }
 
 Button::~Button()
 {
-
 }
 
 bool Button::onHover(Game& game)
@@ -38,6 +42,10 @@ bool Button::onHover(Game& game)
         sf::Mouse::getPosition(game.window).y < mButtonSprite.getPosition().y + mButtonSprite.getGlobalBounds().height)
     {
         mButtonSprite.setTextureRect(sf::IntRect(0, mButtonSprite.getGlobalBounds().height, mButtonSprite.getGlobalBounds().width, mButtonSprite.getGlobalBounds().height));
+
+        if (!m_bHover)
+            mSoundHovered.play();
+
         m_bHover = true;
     }
 
@@ -60,7 +68,11 @@ bool Button::onClick(Game& game)
     if (m_bHover == true)
     {
         if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+        {
             m_bClick = true;
+            mSoundHovered.stop();
+            mSoundClicked.play();
+        }
     }
     else
     {
@@ -73,14 +85,18 @@ bool Button::onClick(Game& game)
 void Button::render(sf::RenderWindow& window)
 {
     window.draw(mButtonSprite);
+
     window.draw(mButtonText);
 }
 
-void Button::loadTexture()
+void Button::loadAssets()
 {
-    mButtonSprite = sf::Sprite(Assets::sprites["MenuButton"].mTexture);
+    mButtonSprite.setTexture(Assets::sprites[mButtonStyle].mTexture);
 
-    mButtonText.setFont(Assets::fonts["normal"].mFont);
+    mButtonText.setFont(Assets::fonts["mario"].mFont);
+
+    mSoundHovered.setBuffer(Assets::sounds["hovered"].mSoundBuffer);
+    mSoundClicked.setBuffer(Assets::sounds["clicked"].mSoundBuffer);
 }
 
 void Button::setColor(sf::Color color)

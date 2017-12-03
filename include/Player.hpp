@@ -3,8 +3,11 @@
 
 #include "SpriteObject.hpp"
 #include "ICollideable.hpp"
+#include "Assets.hpp"
+#include "Constants.hpp"
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 class Player : public SpriteObject, public ICollideable
 {
@@ -25,6 +28,9 @@ private:
     int mJumpSpeed;
     bool mGrounded;
     std::size_t mDirection;
+    std::size_t mOldDirection;
+
+    sf::Sound mSoundJump;
 };
 
 #endif // PLAYER_HPP

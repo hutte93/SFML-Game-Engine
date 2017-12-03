@@ -8,6 +8,11 @@ MainMenu::MainMenu()
 
     loadAssets();
 
+    /// Auto-Scale Background
+    float scaleX = SCREEN_WIDTH / Assets::sprites["MenuBackground"].mTexture.getSize().x;
+    float scaleY = SCREEN_HEIGHT / Assets::sprites["MenuBackground"].mTexture.getSize().y;
+    mBackground.setScale(scaleX, scaleY);
+
     mStartButton->setColor(sf::Color::Green);
     mHelpButton->setColor(sf::Color::Yellow);
     mExitButton->setColor(sf::Color::Red);
@@ -46,9 +51,9 @@ void MainMenu::render(Game &game, float frametime)
 
 void MainMenu::loadAssets()
 {
-    mBackground = sf::Sprite(Assets::sprites["MenuBackground"].mTexture);
+    mBackground.setTexture(Assets::sprites["MenuBackground"].mTexture);
 
-    mStartButton = std::make_shared<Button> (sf::Vector2f(SCREEN_WIDTH / 2 - Assets::sprites["MenuButton"].mTexture.getSize().x / 2, 150.f), "Start");
-    mHelpButton  = std::make_shared<Button> (sf::Vector2f(SCREEN_WIDTH / 2 - Assets::sprites["MenuButton"].mTexture.getSize().x / 2, 250.f), "Help");
-    mExitButton  = std::make_shared<Button> (sf::Vector2f(SCREEN_WIDTH / 2 - Assets::sprites["MenuButton"].mTexture.getSize().x / 2, 350.f), "Quit");
+    mStartButton = std::make_shared<Button> (sf::Vector2f(SCREEN_WIDTH / 2 - Assets::sprites["MenuButton"].mTexture.getSize().x / 2, 150.f), "MenuButton", "Start");
+    mHelpButton  = std::make_shared<Button> (sf::Vector2f(SCREEN_WIDTH / 2 - Assets::sprites["MenuButton"].mTexture.getSize().x / 2, 250.f), "MenuButton", "Help");
+    mExitButton  = std::make_shared<Button> (sf::Vector2f(SCREEN_WIDTH / 2 - Assets::sprites["MenuButton"].mTexture.getSize().x / 2, 350.f), "MenuButton", "Quit");
 }

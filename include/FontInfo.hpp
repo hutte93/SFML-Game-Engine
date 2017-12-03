@@ -1,7 +1,7 @@
 #ifndef FONTINFO_HPP_INCLUDED
 #define FONTINFO_HPP_INCLUDED
 
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Font.hpp>
 
 struct FontInfo
 {

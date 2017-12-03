@@ -3,6 +3,8 @@
 
 #include <memory>
 
+#include "Assets.hpp"
+#include "Button.hpp"
 #include "GameState.hpp"
 
 class PlayState : public GameState

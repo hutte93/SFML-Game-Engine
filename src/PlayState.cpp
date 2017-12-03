@@ -25,6 +25,13 @@ void PlayState::processEvents(Game &game)
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     {
+        pWorldMgr->resetView(game.window);
+        game.changeState(Game::gameState::MAINMENU);
+    }
+
+    if (sf::Joystick::isButtonPressed(0, sf::Joystick::PovX))
+    {
+        pWorldMgr->resetView(game.window);
         game.changeState(Game::gameState::MAINMENU);
     }
 }
@@ -36,5 +43,4 @@ void PlayState::render(Game &game, float frametime)
 
 void PlayState::loadAssets()
 {
-
 }

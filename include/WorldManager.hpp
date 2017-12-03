@@ -16,6 +16,8 @@ public:
     void render(sf::RenderTarget& target, float alpha);
     void handle(sf::Event& event);
 
+    void resetView(sf::RenderTarget &target);
+
 private:
     void loadWorld();
     void loadWorldFileNames();
