@@ -48,7 +48,8 @@ void Game::changeState(gameState newState)
     {
         case gameState::MAINMENU:
             mCurrentState = std::move(std::unique_ptr<MainMenu>(new MainMenu));
-            mSoundMenu.play();
+            if (true == mIsPlayingSound)
+                mSoundMenu.play();
             break;
         case gameState::PLAYSTATE:
             mCurrentState = std::move(std::unique_ptr<PlayState>(new PlayState));

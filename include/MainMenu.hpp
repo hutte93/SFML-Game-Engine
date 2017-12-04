@@ -28,7 +28,6 @@ private:
     std::shared_ptr<Button> mEditorButton;
     std::shared_ptr<Button> mExitButton;
     std::shared_ptr<Button> mSoundButton;
-
 };
 
 #endif // MAINMENU_H

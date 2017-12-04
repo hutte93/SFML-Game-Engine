@@ -82,16 +82,6 @@ void Button::render(sf::RenderWindow& window)
     window.draw(mButtonText);
 }
 
-void Button::loadAssets()
-{
-    mButtonSprite.setTexture(Assets::sprites[mButtonStyle].mTexture);
-
-    mButtonText.setFont(Assets::fonts["mario"].mFont);
-
-    mSoundHovered.setBuffer(Assets::sounds["hovered"].mSoundBuffer);
-    mSoundClicked.setBuffer(Assets::sounds["clicked"].mSoundBuffer);
-}
-
 void Button::setColor(sf::Color color)
 {
     mButtonSprite.setColor(color);
@@ -113,4 +103,14 @@ void Button::setFontSize(int size)
                             Assets::sprites[mButtonStyle].mTexture.getSize().y / 4.f + mButtonSprite.getPosition().y);
 
     mButtonSprite.setTextureRect(sf::IntRect(0,0,Assets::sprites[mButtonStyle].mTexture.getSize().x,Assets::sprites[mButtonStyle].mTexture.getSize().y / 2));
+}
+
+void Button::loadAssets()
+{
+    mButtonSprite.setTexture(Assets::sprites[mButtonStyle].mTexture);
+
+    mButtonText.setFont(Assets::fonts["mario"].mFont);
+
+    mSoundHovered.setBuffer(Assets::sounds["hovered"].mSoundBuffer);
+    mSoundClicked.setBuffer(Assets::sounds["clicked"].mSoundBuffer);
 }
