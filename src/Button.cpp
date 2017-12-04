@@ -71,9 +71,8 @@ bool Button::onClick(Game& game)
         {
             m_bClick = false;
         }
-
-        return m_bClick;
     }
+    return m_bClick;
 }
 
 void Button::render(sf::RenderWindow& window)
