@@ -25,8 +25,9 @@ private:
     sf::Sprite mBackground;
 
     std::shared_ptr<Button> mStartButton;
-    std::shared_ptr<Button> mHelpButton;
+    std::shared_ptr<Button> mEditorButton;
     std::shared_ptr<Button> mExitButton;
+    std::shared_ptr<Button> mSoundButton;
 
 };
 

@@ -3,7 +3,7 @@
 SpriteObject::SpriteObject(SpriteInfo& info, sf::Vector2f pos, bool parallax) : IRenderable(),
     mSpriteInfo(info),
     mParallaxable(parallax),
-    mCurrentFrame(0), mFrameDelay(100.f), mLoopAnim(true), mStartFrame(0), mEndFrame(0), mFrameDir(1)
+    mCurrentFrame(0), mStartFrame(0), mEndFrame(0), mFrameDir(1), mFrameDelay(100.f), mLoopAnim(true)
 {
     mSprite = sf::Sprite(info.mTexture);
     mRenderPosition = pos;

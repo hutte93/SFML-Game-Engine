@@ -39,7 +39,7 @@
 		<Unit filename="include/Camera.hpp" />
 		<Unit filename="include/Constants.hpp" />
 		<Unit filename="include/Direction.hpp" />
-		<Unit filename="include/EndState.hpp" />
+		<Unit filename="include/EditorState.hpp" />
 		<Unit filename="include/FontInfo.hpp" />
 		<Unit filename="include/Game.hpp" />
 		<Unit filename="include/GameState.hpp" />
@@ -60,7 +60,7 @@
 		<Unit filename="src/Assets.cpp" />
 		<Unit filename="src/Button.cpp" />
 		<Unit filename="src/Camera.cpp" />
-		<Unit filename="src/EndState.cpp" />
+		<Unit filename="src/EditorState.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/MainMenu.cpp" />
 		<Unit filename="src/PlayState.cpp" />

@@ -5,10 +5,10 @@
 
 #include "GameState.hpp"
 
-class EndState : public GameState
+class EditorState : public GameState
 {
 public:
-    EndState();
+    EditorState();
 
     void update(Game &game, float frametime) override;
     void processEvents(Game &game) override;

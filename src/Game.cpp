@@ -1,7 +1,7 @@
 #include "Game.hpp"
 #include "MainMenu.hpp"
 #include "PlayState.hpp"
-#include "EndState.hpp"
+#include "EditorState.hpp"
 
 Game::Game(std::string title)
     : window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), title, sf::Style::Close)
@@ -17,6 +17,9 @@ Game::Game(std::string title)
     Assets::loadAssets();
 
     mSoundMenu.setBuffer(Assets::sounds["menu"].mSoundBuffer);
+    mSoundMenu.setVolume(50.f);
+    mSoundMenu.setLoop(true);
+    mIsPlayingSound = true;
 
     changeState(Game::gameState::MAINMENU);
 }
@@ -51,8 +54,9 @@ void Game::changeState(gameState newState)
             mCurrentState = std::move(std::unique_ptr<PlayState>(new PlayState));
             mSoundMenu.stop();
             break;
-        case gameState::ENDSTATE:
-            mCurrentState = std::move(std::unique_ptr<EndState>(new EndState));
+        case gameState::EDITORSTATE:
+            mCurrentState = std::move(std::unique_ptr<EditorState>(new EditorState));
+            mSoundMenu.stop();
             break;
         default:
             throw std::runtime_error("Unable to change gamestate!");
@@ -102,4 +106,18 @@ void Game::calcFrametime()
     #endif // DEBUG
 
     pClock->restart();
+}
+
+void Game::toggleSound()
+{
+    if (true == mIsPlayingSound)
+    {
+        mSoundMenu.stop();
+        mIsPlayingSound = false;
+    }
+    else if (false == mIsPlayingSound)
+    {
+        mSoundMenu.play();
+        mIsPlayingSound = true;
+    }
 }

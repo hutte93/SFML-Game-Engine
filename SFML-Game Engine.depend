@@ -125,7 +125,7 @@
 1512219102 source:/home/patrick/Git/SFML-Game-Engine/main.cpp
 	"Game.hpp"
 
-1512154650 /home/patrick/Git/SFML-Game-Engine/include/Game.hpp
+1512425290 /home/patrick/Git/SFML-Game-Engine/include/Game.hpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<memory>
@@ -138,11 +138,11 @@
 1512121118 /home/patrick/Git/SFML-Game-Engine/include/GameState.hpp
 	"Game.hpp"
 
-1512331931 source:/home/patrick/Git/SFML-Game-Engine/src/Button.cpp
+1512425628 source:/home/patrick/Git/SFML-Game-Engine/src/Button.cpp
 	"Button.hpp"
 	"Assets.hpp"
 
-1512331931 /home/patrick/Git/SFML-Game-Engine/include/Button.hpp
+1512424089 /home/patrick/Git/SFML-Game-Engine/include/Button.hpp
 	"Gui.hpp"
 	<string>
 	<SFML/Audio.hpp>
@@ -163,13 +163,13 @@
 	<memory>
 	"GameState.hpp"
 
-1512155263 source:/home/patrick/Git/SFML-Game-Engine/src/Game.cpp
+1512424601 source:/home/patrick/Git/SFML-Game-Engine/src/Game.cpp
 	"Game.hpp"
 	"MainMenu.hpp"
 	"PlayState.hpp"
-	"EndState.hpp"
+	"EditorState.hpp"
 
-1512154594 /home/patrick/Git/SFML-Game-Engine/include/MainMenu.hpp
+1512424111 /home/patrick/Git/SFML-Game-Engine/include/MainMenu.hpp
 	<memory>
 	"GameState.hpp"
 	"Button.hpp"
@@ -181,7 +181,7 @@
 	"Button.hpp"
 	"GameState.hpp"
 
-1512332447 source:/home/patrick/Git/SFML-Game-Engine/src/MainMenu.cpp
+1512425324 source:/home/patrick/Git/SFML-Game-Engine/src/MainMenu.cpp
 	"MainMenu.hpp"
 
 1512219809 source:/home/patrick/Git/SFML-Game-Engine/src/PlayState.cpp
@@ -191,7 +191,7 @@
 1512039653 source:/home/patrick/Git/SFML-Game-Engine/src/Resources.cpp
 	"Resources.hpp"
 
-1512219116 /home/patrick/Git/SFML-Game-Engine/include/Constants.hpp
+1512398184 /home/patrick/Git/SFML-Game-Engine/include/Constants.hpp
 	<SFML/System/Time.hpp>
 
 1512042741 source:/home/patrick/Git/SFML-Game-Engine/src/Camera.cpp
@@ -215,15 +215,15 @@
 1512142996 /home/patrick/Git/SFML-Game-Engine/include/FontInfo.hpp
 	<SFML/Graphics/Font.hpp>
 
-1512334724 source:/home/patrick/Git/SFML-Game-Engine/src/Assets.cpp
+1512423928 source:/home/patrick/Git/SFML-Game-Engine/src/Assets.cpp
 	"Assets.hpp"
 
-1512334620 source:/home/patrick/Git/SFML-Game-Engine/src/Player.cpp
+1512421683 source:/home/patrick/Git/SFML-Game-Engine/src/Player.cpp
 	"Player.hpp"
 	"Direction.hpp"
 	<iostream>
 
-1512221203 /home/patrick/Git/SFML-Game-Engine/include/Player.hpp
+1512420484 /home/patrick/Git/SFML-Game-Engine/include/Player.hpp
 	"SpriteObject.hpp"
 	"ICollideable.hpp"
 	"Assets.hpp"
@@ -250,10 +250,10 @@
 
 1512053455 /home/patrick/Git/SFML-Game-Engine/include/Direction.hpp
 
-1512121457 source:/home/patrick/Git/SFML-Game-Engine/src/SpriteObject.cpp
+1512420601 source:/home/patrick/Git/SFML-Game-Engine/src/SpriteObject.cpp
 	"SpriteObject.hpp"
 
-1512332833 source:/home/patrick/Git/SFML-Game-Engine/src/World.cpp
+1512422017 source:/home/patrick/Git/SFML-Game-Engine/src/World.cpp
 	"World.hpp"
 	<sstream>
 	<fstream>
@@ -293,4 +293,35 @@
 
 1512142942 /home/patrick/Git/SFML-Game-Engine/include/SoundInfo.hpp
 	<SFML/Audio/SoundBuffer.hpp>
+
+1512422099 source:/home/patrick/Git/SFML-Game-Engine/src/EditorState.cpp
+	"EditorState.hpp"
+
+1512398084 /home/patrick/Git/SFML-Game-Engine/include/EditorState.hpp
+	<memory>
+	"GameState.hpp"
+
+1512398967 /home/patrick/Git/SFML-Game-Engine/include/WorldRef.hpp
+	"WayPointManager.hpp"
+	<memory>
+	<SFML/Graphics.hpp>
+
+1512399598 /home/patrick/Git/SFML-Game-Engine/include/WayPointManager.hpp
+	"WayPoint.hpp"
+	"micropather.hpp"
+	<vector>
+	<SFML/Graphics.hpp>
+
+1512399225 /home/patrick/Git/SFML-Game-Engine/include/WayPoint.hpp
+	<iostream>
+	<SFML/System/Vector2.hpp>
+
+1512399689 /home/patrick/Git/SFML-Game-Engine/include/micropather.hpp
+	<cstring>
+	<cstdint>
+	<vector>
+	<float.h>
+	<assert.h>
+	<stdlib.h>
+	<stdlib.h>
 

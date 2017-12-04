@@ -11,7 +11,7 @@ class Game;
 class Button : public Gui
 {
 public:
-    Button(sf::Vector2f position, std::string buttonStyle, std::string text);
+    Button(sf::Vector2f position, std::string buttonStyle, std::string text = "");
     ~Button();
 
     bool onHover(Game& game) override;
@@ -19,7 +19,10 @@ public:
 
     void render(sf::RenderWindow& window) override;
     void loadAssets();
+
     void setColor(sf::Color color);
+    void setFontColor(sf::Color color);
+    void setFontSize(int size);
 
 private:
     sf::Sprite mButtonSprite;

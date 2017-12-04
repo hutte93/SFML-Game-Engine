@@ -21,7 +21,7 @@ class Game
 public:
     enum class gameState
     {
-        MAINMENU, PLAYSTATE, ENDSTATE
+        MAINMENU, PLAYSTATE, EDITORSTATE
     };
 
     Game(std::string title);
@@ -29,6 +29,7 @@ public:
 
     void run();
     void changeState(gameState newState);
+    void toggleSound();
 
 public:
     sf::RenderWindow window;
@@ -50,6 +51,7 @@ private:
     std::unique_ptr<GameState> mCurrentState;
 
     sf::Sound mSoundMenu;
+    bool mIsPlayingSound;
 };
 
 #endif // GAME_H

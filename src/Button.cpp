@@ -13,17 +13,9 @@ Button::Button(sf::Vector2f position, std::string buttonStyle, std::string text)
     mButtonSprite.setPosition(position);
 
     mButtonText.setString(text);
-    mButtonText.setFillColor(sf::Color::Black);
-    mButtonText.setCharacterSize(30);
 
-    sf::FloatRect textRect = mButtonText.getLocalBounds();
-    mButtonText.setOrigin(textRect.left + textRect.width / 2.f,
-        textRect.top + textRect.height / 2.f);
-
-    mButtonText.setPosition(Assets::sprites[mButtonStyle].mTexture.getSize().x / 2.f + mButtonSprite.getPosition().x,
-                            Assets::sprites[mButtonStyle].mTexture.getSize().y / 4.f + mButtonSprite.getPosition().y);
-
-    mButtonSprite.setTextureRect(sf::IntRect(0,0,Assets::sprites[mButtonStyle].mTexture.getSize().x,Assets::sprites[mButtonStyle].mTexture.getSize().y / 2));
+    setFontColor(sf::Color::Black);
+    setFontSize(25);
 
     mSoundHovered.setVolume(20.f);
     mSoundClicked.setVolume(100.f);
@@ -64,22 +56,24 @@ bool Button::onHover(Game& game)
 
 bool Button::onClick(Game& game)
 {
-    // check if button is hovered
-    if (m_bHover == true)
+    if (true == m_bHover)
     {
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+        if (sf::Event::MouseButtonPressed == game.event.type)
         {
-            m_bClick = true;
-            mSoundHovered.stop();
-            mSoundClicked.play();
+            if (sf::Mouse::Left == game.event.mouseButton.button)
+            {
+                m_bClick = true;
+                mSoundHovered.stop();
+                mSoundClicked.play();
+            }
         }
-    }
-    else
-    {
-        m_bClick = false;
-    }
+        else
+        {
+            m_bClick = false;
+        }
 
-    return m_bClick;
+        return m_bClick;
+    }
 }
 
 void Button::render(sf::RenderWindow& window)
@@ -102,4 +96,22 @@ void Button::loadAssets()
 void Button::setColor(sf::Color color)
 {
     mButtonSprite.setColor(color);
+}
+
+void Button::setFontColor(sf::Color color)
+{
+    mButtonText.setFillColor(color);
+}
+
+void Button::setFontSize(int size)
+{
+    mButtonText.setCharacterSize(size);
+    sf::FloatRect textRect = mButtonText.getLocalBounds();
+    mButtonText.setOrigin(textRect.left + textRect.width / 2.f,
+        textRect.top + textRect.height / 2.f);
+
+    mButtonText.setPosition(Assets::sprites[mButtonStyle].mTexture.getSize().x / 2.f + mButtonSprite.getPosition().x,
+                            Assets::sprites[mButtonStyle].mTexture.getSize().y / 4.f + mButtonSprite.getPosition().y);
+
+    mButtonSprite.setTextureRect(sf::IntRect(0,0,Assets::sprites[mButtonStyle].mTexture.getSize().x,Assets::sprites[mButtonStyle].mTexture.getSize().y / 2));
 }

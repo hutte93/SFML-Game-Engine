@@ -6,20 +6,49 @@ renderonly: cloud 128 128 parallax
 renderonly: cloud 512 96 parallax
 renderonly: cloud 700 32 parallax
 
-platform: grass_left 100 476
-platform: dirt_left 100 508
-platform: grass_mid 132 476
-platform: dirt_mid 132 508
-platform: grass_mid 164 476
-platform: dirt_mid 164 508
-platform: grass_mid 196 476
-platform: dirt_mid 196 508
-platform: grass_mid 228 476
-platform: dirt_mid 228 508
-platform: grass_mid 260 476
-platform: dirt_mid 260 508
-platform: grass_right 292 476
-platform: grass_down_right 292 508
+platform: grass_left 100 508
+platform: grass_mid 132 508
+platform: grass_mid 164 508
+platform: grass_mid 196 508
+platform: grass_mid 228 508
+platform: grass_mid 260 508
+platform: grass_mid 292 508
 platform: grass_mid 324 508
-platform: grass_mid 324 508
+platform: grass_right 356 508
+
+platform: grass_left 500 444
+platform: dirt_left 500 476
+platform: dirt_left 500 508
+platform: grass_right 532 444
+platform: dirt_right 532 476
+platform: dirt_right 532 508
+
+platform: grass_left 680 350
+platform: dirt_left 680 382
+platform: dirt_left 680 414
+platform: dirt_left 680 446
+platform: dirt_left 680 478
+platform: dirt_left 680 510
+platform: grass_mid 712 350
+platform: dirt_mid 712 382
+platform: dirt_mid 712 414
+platform: dirt_mid 712 446
+platform: dirt_mid 712 478
+platform: dirt_mid 712 510
+platform: grass_mid 744 350
+platform: dirt_mid 744 382
+platform: dirt_mid 744 414
+platform: dirt_mid 744 446
+platform: dirt_mid 744 478
+platform: dirt_mid 744 510
+platform: grass_right 776 350
+platform: dirt_right 776 382
+platform: dirt_right 776 414
+platform: dirt_right 776 446
+platform: dirt_right 776 478
+platform: dirt_right 776 510
+
+platform: grass_left 900 275
+platform: grass_mid 932 275
+platform: grass_right 964 275
 
