@@ -6,5 +6,5 @@ Screenshot of the MainMenu:
 Screenshot of the Gameplay:
 ![][game]
 
-[menu]: https://raw.github.com/hutte93/SFML-Game-Engine/tree/master/assets/gfx/Menu.png
-[game]: https://raw.github.com/hutte93/SFML-Game-Engine/tree/master/assets/gfx/Game.png
+[menu]: https://github.com/hutte93/SFML-Game-Engine/tree/master/assets/gfx/Menu.png
+[game]: https://github.com/hutte93/SFML-Game-Engine/tree/master/assets/gfx/Game.png
